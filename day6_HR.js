@@ -1,31 +1,47 @@
 // Hacker Rank Day #6 - 30 day coding challenge
 function processData(input) {
-    var S = input;
-    var sWordArray = S.substring(2).split('\n');
-    var sCharArray = S.substring(2).split('');
+    var sCharArray = input.split('');
     var N = sCharArray.length - 1;
     var sOdd = [];
     var sEven = [];
-    console.log(sWordArray);
+    // console.log(sCharArray);
     for (var i=0; i <= N; i++) {
-        if (i%2===0 || i===0) {
+       if (i%2===0 || i===0) {
             sOdd.push(sCharArray[i]);
-            console.log(sOdd);
        }
        else {
          sEven.push(sCharArray[i]);
-         console.log(sEven);
        }
     }
+    sOddString = sOdd.join('');
+    sEvenString = sEven.join('');
+    console.log(sOddString + "  " + sEvenString);
 } 
 
 process.stdin.resume();
-process.stdin.setEncoding("ascii");
-_input = "";
-process.stdin.on("data", function (input) {
-    _input += input;
+process.stdin.setEncoding('ascii');
+
+var input_stdin = "";
+var input_stdin_array = "";
+var input_currentline = 0;
+
+process.stdin.on('data', function (data) {
+    input_stdin += data;
 });
 
-process.stdin.on("end", function () {
-   processData(_input);
+process.stdin.on('end', function () {
+    input_stdin_array = input_stdin.split("\n");
+    main();    
 });
+
+function readLine() {
+    return input_stdin_array[input_currentline++];
+}
+
+function main() {
+    var T = parseInt(readLine());
+    for (var i=0; i <= T; i++) {
+        var S = readLine();
+        processData(S);
+    }
+}
