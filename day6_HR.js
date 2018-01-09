@@ -15,7 +15,7 @@ function processData(input) {
     }
     sOddString = sOdd.join('');
     sEvenString = sEven.join('');
-    console.log(sOddString + "  " + sEvenString);
+    console.log(sOddString + " " + sEvenString);
 } 
 
 process.stdin.resume();
@@ -40,7 +40,7 @@ function readLine() {
 
 function main() {
     var T = parseInt(readLine());
-    for (var i=0; i <= T; i++) {
+    for (var i=0; i <= T-1; i++) {
         var S = readLine();
         processData(S);
     }
